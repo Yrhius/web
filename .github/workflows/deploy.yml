@@ -19,5 +19,5 @@ jobs:
           username : ${{ secrets.id }}
           password: ${{ secrets.mdp }}
           remote_path: ./public_html/hello_world_site/
-          stfp_only: true
+          sftp_only: true
           ssh_private_key: ''
