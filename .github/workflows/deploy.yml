@@ -1,0 +1,23 @@
+name: deploy.yml
+on:
+  push:
+    branches:
+      - 'master'
+
+jobs:
+
+  deploy-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Upload files on FTP server
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ftpinfo.iutmontp.univ-montp2.fr
+          port: 22
+          username : ${{ secrets.id }}
+          password: ${{ secrets.mdp }}
+          remote_path: ./public_html/hello_world_site/
+          stfp_only: true
+          ssh_private_key: ''
